@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kayzen Media-Tech</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f0f0f0; padding: 20px; }
+    .container { max-width: 600px; margin: auto; background: white; padding: 25px; border-radius: 10px; }
+    h1, h2 { text-align: center; color: #222; }
+    input, select, button {
+      width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px;
+    }
+    button { background: #007bff; color: white; border: none; }
+    button:hover { background: #0056b3; }
+    .footer, .info { text-align: center; margin-top: 20px; font-size: 14px; color: #555; }
+    .qris img { width: 200px; border-radius: 10px; margin-top: 15px; }
+    .qris { text-align: center; }
+    a { color: #007bff; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Selamat Datang di<br>Kayzen Media-Tech</h1>
+
+    <p class="info">
+      Email: <a href="mailto:kenzyalvino257@gmail.com">kenzyalvino257@gmail.com</a><br>
+      GitHub: <a href="https://github.com/Kenzy-dobleX" target="_blank">Kenzy-dobleX</a><br>
+      WhatsApp: <a href="https://wa.me/62895338452233" target="_blank">Klik untuk chat</a>
+    </p>
+
+    <h2>Form Pemesanan</h2>
+    <form id="form">
+      <label>Nama:</label>
+      <input type="text" id="nama" required>
+
+      <label>Nomor WhatsApp:</label>
+      <input type="text" id="wa" required>
+
+      <label>Pilih Produk:</label>
+      <select id="layanan">
+        <option>Pembuatan script</option>
+        <option>Nokos all negara</option>
+        <option>Reseller create sc</option>
+        <option>Reseller create web</option>
+        <option>Suntik followers</option>
+        <option>Admin create sc</option>
+        <option>Admin create web</option>
+        <option>Metode phising camera</option>
+        <option>Metode phising lokasi</option>
+        <option>Rename script bot</option>
+        <option>Tambah Vitur script bot</option>
+        <option>Panel ptrodactyl</option>
+      </select>
+
+      <button type="submit">Lanjutkan Pembayaran</button>
+    </form>
+
+    <div id="payment" style="display:none;">
+      <h2>Pembayaran</h2>
+      <p><strong>Transfer ke: 0895338452233 (Dana)</strong></p>
+      <div class="qris">
+        <p>Atau scan QRIS di bawah:</p>
+        <img src="qris.jpg" alt="QRIS">
+      </div>
+
+      <a id="btnWa" href="#" target="_blank">
+        <button style="background:#25d366; margin-top: 20px;">Kirim Bukti via WhatsApp</button>
+      </a>
+    </div>
+
+    <div class="footer">
+      <p>© 2025 Kayzen Media-Tech. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('form');
+    const payment = document.getElementById('payment');
+    const btnWa = document.getElementById('btnWa');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      form.style.display = 'none';
+      payment.style.display = 'block';
+
+      const nama = document.getElementById('nama').value;
+      const wa = document.getElementById('wa').value;
+      const layanan = document.getElementById('layanan').value;
+
+      const pesan = `Halo, saya ingin konfirmasi pesanan:\n\nNama: ${nama}\nWA: ${wa}\nProduk: ${layanan}`;
+      btnWa.href = `https://wa.me/62895338452233?text=${encodeURIComponent(pesan)}`;
+    });
+  </script>
+
+</body>
+</html>
